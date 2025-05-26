@@ -1,6 +1,11 @@
 import csv
 
+# The Movie Handler class handles every interaction with movie database.
+# It initializes by loading the csv file and storing the movie data in a
+# dictionary (movies).
 class MovieHandler:
+    # Load all movies from the csv file into
+    # the class attribute self.movies of the type dictionary
     def __loadMovies(self):
         self.movies = []
         csv_path = 'movieData.csv'
@@ -13,31 +18,39 @@ class MovieHandler:
                     'synopsis': row['synopsis']
                 })
 
+    # Class constructor class the loadMovies method
     def __init__(self):
         self.__loadMovies()
 
-    def getAllGenres(self):
+    # Return all distinct existing genres
+    def get_all_genres(self):
         all_genres = set()
         for movie in self.movies:
             all_genres.add(movie['genre'])
         return all_genres
 
-    def getMovies(self):
+    # Return all movies
+    def get_movies(self):
         return self.movies
 
-    def printMovies(self):
-        for movie in self.movies:
-            print(movie)
-
-    def getMovie(self, movie_title):
+    # Return a dictionary entry that matches the provided title
+    def get_movie(self, movie_title):
         result_movie = ""
         for movie in self.movies:
             if movie["title"] == movie_title:
                 result_movie = movie
         return result_movie
 
+    # Return all movies in a dictionary that match the provided genre
+    def get_movies_by_genre(self, genre_name):
+        genre_movies = []
+        for movie in self.movies:
+            if movie['genre'].lower() == genre_name.lower():
+                genre_movies.append(movie)
+        return genre_movies
+
 moviehandler = MovieHandler()
-#print(moviehandler.getAllGenres())
-#print(moviehandler.getMovies())
-#moviehandler.printMovies()
-print(moviehandler.getMovie("The godfather"))
+#print(moviehandler.get_all_genres())
+#print(moviehandler.get_movies())
+#print(moviehandler.get_movie("The godfather"))
+print(moviehandler.get_movies_by_genre("Drama"))
