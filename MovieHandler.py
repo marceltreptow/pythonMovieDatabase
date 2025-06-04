@@ -48,9 +48,3 @@ class MovieHandler:
             if movie['genre'].lower() == genre_name.lower():
                 genre_movies.append(movie)
         return genre_movies
-
-moviehandler = MovieHandler()
-#print(moviehandler.get_all_genres())
-#print(moviehandler.get_movies())
-#print(moviehandler.get_movie("The godfather"))
-print(moviehandler.get_movies_by_genre("Drama"))
