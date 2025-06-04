@@ -6,7 +6,7 @@ import csv
 class MovieHandler:
     # Load all movies from the csv file into
     # the class attribute self.movies of the type dictionary
-    def __loadMovies(self):
+    def __load_movies(self):
         self.movies = []
         csv_path = 'movieData.csv'
         with open(csv_path, mode='r', encoding='utf-8') as csv_file:
@@ -20,7 +20,7 @@ class MovieHandler:
 
     # Class constructor class the loadMovies method
     def __init__(self):
-        self.__loadMovies()
+        self.__load_movies()
 
     # Return all distinct existing genres
     def get_all_genres(self):
