@@ -19,7 +19,7 @@ def main():
         print(f"- {genre}")
 
     # Asks for user input
-    selected_genre = input("\nEnter your preferred genre: ").strip()
+    selected_genre = input("\nEnter your preferred genre: ").strip().lower()
 
     # Checks if the genre exist and stops the program if it does not
     # Case sensitive check
